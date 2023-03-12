@@ -38,6 +38,8 @@ show tables;
 # テーブル作成
 create table テーブル名(テーブルの条件たち);
 
+### MySQLの予約語に注意!!! ###
+
 # テーブル作成のサンプル
 create table pet(
   id int(11) auto_increment not null,
