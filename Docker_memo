@@ -1,0 +1,55 @@
+# Docker起動(Dockerアプリを立ち上げる)
+docker-compose up
+
+# Docker停止
+docker-compose down
+
+# Dockerの内部に入る
+docker-compose exec サービス名 bash
+
+# Docker内部から抜ける時
+exit
+
+### MySQLに接続するまでの流れ ###
+
+# Dockerアプリを立ち上げる
+# MySQL接続
+docker-compose up -d && docker-compose exec db bash
+mysql -u root -p
+→password聞いてくるので example と打つ
+→docker-compose.yml に記載しているPASSWORD:だと思われる
+
+# MySQLから抜ける時
+exit
+
+### MySQL時はコマンドの最後に;をつけ忘れないこと!!! ###
+# DB作成
+create database DB名;
+
+# データベース一覧
+show databases;
+
+# データベース選択
+use DB名;
+
+# テーブル一覧(DB選択後)
+show tables;
+
+# テーブル作成
+create table テーブル名(テーブルの条件たち);
+
+# テーブル作成のサンプル
+create table pet(
+  id int(11) auto_increment not null,
+  name varchar(20) not null,
+  cute int(4),
+  an_id int(2) not null,
+  primary key (id));
+
+# テーブルの削除
+drop table テーブル名;
+
+# レコードの追加
+insert into テーブル名 (カラム1, カラム2, ...) values (値1, 値2, ...);
+
+
